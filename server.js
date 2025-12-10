@@ -18,6 +18,9 @@ const app = express();
 app.use(express.json());
 app.use(corsMiddleware); 
 
+
+
+
 // Auth routes
 const authRoutes = require("./routes/authRouters");
 app.use("/api/auth", authRoutes);
@@ -33,6 +36,7 @@ app.get("/", (req, res) => {
 
 // Gemini AI routes
 app.use("/api/genai", genAiRoutes);
+
 
 // ---- Connect DB and Start Server ----
 const PORT = process.env.PORT || 5000;
