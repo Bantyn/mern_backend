@@ -24,7 +24,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import Groq from "groq-sdk";
 // const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
-const client = new Groq({ apiKey: "REMOVEDOVg7m4KdHxe8uXP3ySJnWGdyb3FYuasddm1veynFdpLvYSbUCsCc" });
+const client = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 export const chatBot = async (req, res) => {
   try {
