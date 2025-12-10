@@ -9,7 +9,9 @@ const allowedOrigins = [
   `http://${backendIP}:5173`,  // Vite on your IP
   `http://localhost:5173`,     // Vite locally
   `http://${backendIP}:5000`,  // Backend itself
-  "http://localhost:5000"
+  "http://localhost:5000",
+  "https://mern-frontend-6uim.vercel.app",   // ✅ Your Vercel frontend
+  "https://mern-backend-f5oi.onrender.com"
 ];
 
 const corsOptions = {
