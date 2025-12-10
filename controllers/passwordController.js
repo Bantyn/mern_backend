@@ -2,7 +2,7 @@ const User = require("../models/User");
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcryptjs");
 
-let otpStore = {}; // store { email: OTP }
+let otpStore = {}; 
 
 exports.sendOTP = async (req, res) => {
   const { email } = req.body;
@@ -17,6 +17,8 @@ exports.sendOTP = async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+    connectionTimeout: 10000,
+    
   });
 
   const mailOptions = {
