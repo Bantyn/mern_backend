@@ -9,7 +9,7 @@ const corsMiddleware = require("./config/cors");
 const path = require("path");
 const uploadRoutes = require("./routes/uploadRoutes");
 const genAiRoutes = require("./routes/GeminiAiRouter");
-
+const passwordRoutes = require("./routes/passwordRoutes");
 const app = express();
 app.use(express.json());
 app.use(corsMiddleware);
@@ -21,6 +21,9 @@ app.use("/api/auth", authRoutes);
 // Upload routes
 app.use("/api/upload", uploadRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Password routes
+app.use("/api/password", passwordRoutes);
 
 // Health route
 app.get("/", (req, res) => {
