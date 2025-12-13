@@ -36,8 +36,12 @@ app.use("/api/genai", genAiRoutes);
 // ---- Connect DB and Start Server ----
 const PORT = process.env.PORT || 5000;
 
+const getLocalIP = require("./config/getLocalIP");
+const backendIP = getLocalIP();
+
+
 connectDB().then(() => {
   app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`\nServer running on \n port : http://localhost:${PORT} \n local network IP : http://${backendIP}:${PORT} \n render IP : ${process.env.BACKEND_URL}`);
   });
 });
