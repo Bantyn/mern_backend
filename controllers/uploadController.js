@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + path.extname(file.originalname)); // e.g. 123456789.png
+    cb(null, uniqueSuffix + path.extname(file.originalname)); 
   },
 });
 
@@ -49,7 +49,7 @@ const uploadFileController = (req, res) => {
       message: "File uploaded successfully",
       filename: req.file.filename,
       path: req.file.path,
-      url: `http://${process.env.LOCAL_IP || "localhost"}:${process.env.PORT}/uploads/${req.file.filename}`
+      url: `${process.env.BACKEND_URL}/uploads/${req.file.filename}` || `http://${process.env.LOCAL_IP || "localhost"}:${process.env.PORT}/uploads/${req.file.filename}`
     });
   } catch (err) {
     console.error(err);
